@@ -2,7 +2,7 @@ import Service from './Service'
 
 class MoleculesService extends Service {
 	async getMolecules() {
-		return this.getData('molecules')
+		return await this.getData('molecules')
 	}
 }
 
