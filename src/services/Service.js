@@ -14,6 +14,12 @@ class Service {
 
 		return data
 	}
+
+	async postData(body) {
+		const { data } = await axios.post(`${this.API_URL}/order`, body)
+
+		return data
+	}
 }
 
 export default Service

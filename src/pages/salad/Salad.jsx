@@ -1,13 +1,12 @@
 import React from 'react'
 import { useEffect } from 'react'
-import { Col, Container, Row, Button, ListGroup } from 'react-bootstrap'
+import { Col, Container, Row, Button, ListGroup, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { getSaladById } from '../../slices/saladsSlice'
 import { Spinner } from '../../components'
 import { getMolecules } from '../../slices/moleculesSlice'
 import filterData from '../../helper/filterData'
-import { useState } from 'react'
 
 const Salad = () => {
 	const dispatch = useDispatch()
@@ -23,6 +22,10 @@ const Salad = () => {
 		dispatch(getMolecules())
 	}, [])
 
+	const sabmitHandler = (e) => {
+		e.preventDafault()
+	}
+
 	return (
 		<Container>
 			<Row>
@@ -31,7 +34,13 @@ const Salad = () => {
 						<Spinner />
 					) : (
 						<>
-							<Button as={Link} to="/" variant="dark" className="mb-3">
+							<Button
+								as={Link}
+								to="/"
+								variant="dark"
+								className="mb-3"
+								type="button"
+							>
 								Back
 							</Button>
 							<hr />
@@ -48,7 +57,7 @@ const Salad = () => {
 								})}
 							</ListGroup>
 
-							<Button variant="success" className="mt-4">
+							<Button variant="success" className="mt-4" type="submit">
 								Make Order
 							</Button>
 						</>
