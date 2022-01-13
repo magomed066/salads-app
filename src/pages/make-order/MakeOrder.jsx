@@ -25,7 +25,11 @@ const MakeOrder = () => {
 		(state) => state.molecules,
 	)
 	const { message } = useSelector((state) => state.message)
-	const { order: orderInfo, loading } = useSelector((state) => state.order)
+	const {
+		order: orderInfo,
+		loading,
+		error,
+	} = useSelector((state) => state.order)
 
 	useEffect(() => {
 		dispatch(getMolecules())
@@ -66,6 +70,7 @@ const MakeOrder = () => {
 
 					<Form onSubmit={submitHandler}>
 						{message && orderInfo && <Alert variant="success">{message}</Alert>}
+						{message && error && <Alert variant="danger">{message}</Alert>}
 						{loading && <Spinner />}
 						<Row>
 							<Col>
