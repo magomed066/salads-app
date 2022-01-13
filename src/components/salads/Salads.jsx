@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { Card, Modal } from '..'
+import { Card } from '..'
 import { getSalads } from '../../slices/saladsSlice'
 
 const Salads = () => {
@@ -23,7 +23,6 @@ const Salads = () => {
 						<Card key={item._id} item={item} />
 					))}
 				</Col>
-				<Modal />
 			</Row>
 		</Container>
 	)
